@@ -17,23 +17,24 @@ import com.medvedev.financeapp.presentation.viewModel.HomeViewModel;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    private FragmentHomeBinding binding;
+private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+    binding = FragmentHomeBinding.inflate(inflater, container, false);
+    View root = binding.getRoot();
+    TextView tv = binding.textHome;
 
-            homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-                @Override
-                public void onChanged(@Nullable String s) {
+        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
 
-                }
-            });
-            return root;
+            }
+        });
+        return root;
     }
 
     @Override

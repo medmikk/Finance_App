@@ -6,7 +6,7 @@
     tools:context=".presentation.view.homeActivity.fragments.FavouriteFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_stocks"
+        android:id="@+id/rv_stocks"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:itemCount="6"

@@ -33,7 +33,7 @@ public class FavouriteViewModel  extends AndroidViewModel {
     }
 
     public void addStock(String ticker,
-                         int lastCost,
+                         Double lastCost,
                          String companyName,
                          int cost){
 
