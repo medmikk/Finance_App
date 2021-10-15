@@ -3,6 +3,7 @@ package com.medvedev.financeapp.presentation.view.homeActivity.fragments;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -29,6 +30,11 @@ public class FavouriteFragment extends Fragment {
     private FragmentFavouriteBinding binding;
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
@@ -48,7 +54,7 @@ public class FavouriteFragment extends Fragment {
         viewModel = new ViewModelProvider(this).get(FavouriteViewModel.class);
         viewModel.getAllStocks().observe(getViewLifecycleOwner(), stocks -> adapter.setStocks(stocks));
 
-        viewModel.addStock("111", 123.2, "comp", 124.5);
+        //viewModel.addStock("111", "comp",123.4,  444.2);
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             @Override

@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.medvedev.financeapp.R;
+import com.medvedev.financeapp.presentation.view.StockInfoActivity;
 import com.medvedev.financeapp.repository.model.StockDTO;
 
 import java.util.ArrayList;
@@ -35,8 +36,8 @@ public class StockListAdapter extends RecyclerView.Adapter<StockListAdapter.Stoc
         holder.setId(currentStock.getId());
         holder.tickerTv.setText(currentStock.getTicker());
         holder.companyNameTv.setText(currentStock.getCompanyName());
-        holder.lastCostTv.setText(new Integer(currentStock.getLastCost()).toString());
-        holder.costTv.setText(new Integer(currentStock.getCost()).toString());
+        holder.lastCostTv.setText(new Double(currentStock.getLastCost()).toString());
+        holder.costTv.setText(new Double(currentStock.getCost()).toString());
     }
 
     @Override
@@ -70,11 +71,11 @@ public class StockListAdapter extends RecyclerView.Adapter<StockListAdapter.Stoc
             lastCostTv = itemView.findViewById(R.id.lastCostTv);
             item = itemView.findViewById(R.id.itemCvMain);
 
-//            item.setOnClickListener(v -> {
-//                Intent intent = new Intent(item.getContext(), StockInfoActivity.class);
-//                intent.putExtra("id", id);
-//                item.getContext().startActivity(intent);
-//            });
+            item.setOnClickListener(v -> {
+                Intent intent = new Intent(item.getContext(), StockInfoActivity.class);
+                intent.putExtra("id", id);
+                item.getContext().startActivity(intent);
+            });
 
         }
 

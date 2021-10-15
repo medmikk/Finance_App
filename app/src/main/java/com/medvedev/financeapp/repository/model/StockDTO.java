@@ -19,14 +19,14 @@ public class StockDTO {
     @ColumnInfo
     public String companyName;
     @ColumnInfo
-    public int lastCost;
+    public double lastCost;
     @ColumnInfo
-    public int cost;
+    public double cost;
 
     public StockDTO() {
     }
 
-    public StockDTO(String ticker, String companyName, int lastCost, int cost) {
+    public StockDTO(String ticker, String companyName, double lastCost, double cost) {
         this.ticker = ticker;
         this.companyName = companyName;
         this.lastCost = lastCost;
@@ -57,7 +57,7 @@ public class StockDTO {
         this.companyName = companyName;
     }
 
-    public int getLastCost() {
+    public double getLastCost() {
         return lastCost;
     }
 
@@ -65,7 +65,7 @@ public class StockDTO {
         this.lastCost = lastCost;
     }
 
-    public int getCost() { return cost; }
+    public double getCost() { return cost; }
 
     public void setCost(int cost) { this.cost = cost; }
 }

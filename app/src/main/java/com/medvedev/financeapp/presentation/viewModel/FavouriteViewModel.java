@@ -33,9 +33,9 @@ public class FavouriteViewModel  extends AndroidViewModel {
     }
 
     public void addStock(String ticker,
-                         Double lastCost,
                          String companyName,
-                         int cost){
+                         double cost,
+                         double lastCost){
 
         StockDTO stockDTO = new StockDTO(ticker, companyName, lastCost, cost);
         repository.insert(stockDTO);
