@@ -1,40 +1,58 @@
 package com.medvedev.financeapp.domain.model;
 
-import java.time.LocalDateTime;
-
 public class Stock {
 
-    private String place;
-    private LocalDateTime arrivalTime;
-    private int numberOfVisitors;
+    private String ticker;
+    private String companyName;
+    private Double cost;
+    private Double changePerCent;
 
-    public Stock(String place, LocalDateTime arrivalTime, int numberOfVisitors) {
-        this.place = place;
-        this.arrivalTime = arrivalTime;
-        this.numberOfVisitors = numberOfVisitors;
+    public Stock(String ticker, String companyName, Double cost, Double changePerCent) {
+        this.ticker = ticker;
+        this.companyName = companyName;
+        this.cost = cost;
+        this.changePerCent = changePerCent;
     }
 
-    public String getPlace() {
-        return place;
+    public String getTicker() {
+        return ticker;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
     }
 
-    public LocalDateTime getArrivalTime() {
-        return arrivalTime;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setArrivalTime(LocalDateTime arrivalTime) {
-        this.arrivalTime = arrivalTime;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
-    public int getNumberOfVisitors() {
-        return numberOfVisitors;
+    public Double getCost() {
+        return cost;
     }
 
-    public void setNumberOfVisitors(int numberOfVisitors) {
-        this.numberOfVisitors = numberOfVisitors;
+    public void setCost(Double cost) {
+        this.cost = cost;
+    }
+
+    public Double getChangePerCent() {
+        return changePerCent;
+    }
+
+    public void setChangePerCent(Double changePerCent) {
+        this.changePerCent = changePerCent;
+    }
+
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "ticker='" + ticker + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", cost=" + cost +
+                ", changePerCent=" + changePerCent +
+                '}';
     }
 }

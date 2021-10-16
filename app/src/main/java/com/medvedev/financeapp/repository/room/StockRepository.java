@@ -4,6 +4,7 @@ package com.medvedev.financeapp.repository.room;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Room;
 
 import com.medvedev.financeapp.repository.model.StockDTO;
 import com.medvedev.financeapp.repository.room.DAO.StockDAO;
@@ -17,6 +18,9 @@ public class StockRepository {
 
     public StockRepository(Application application){
         StockRoomDatabase database = StockRoomDatabase.getDatabase(application);
+//        database = Room.databaseBuilder(application.getApplicationContext(), StockRoomDatabase.class, "stock_database")
+//                .fallbackToDestructiveMigration()
+//                .build();
         stockDAO = database.orderDAO();
         allStocks = stockDAO.getAllStocks();
     }

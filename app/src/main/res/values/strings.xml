@@ -13,4 +13,23 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="favourite">Favourite</string>
+    <string-array name="popular_tickers">
+        <item>GOOG</item>
+        <item>AAPL</item>
+        <item>YNDX</item>
+        <item>TSLA</item>
+        <item>AMZN</item>
+        <item>FB</item>
+        <item>MSFT</item>
+    </string-array>
+
+    <string-array name="popular_descriptions">
+        <item>Alphabet Inc</item>
+        <item>Apple Inc</item>
+        <item>Yandex NV</item>
+        <item>Tesla Inc</item>
+        <item>Amazon.com Inc</item>
+        <item>Facebook Inc</item>
+        <item>Microsoft Corp</item>
+    </string-array>
 </resources>

@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.medvedev.financeapp.domain.model.Stock;
+
 import org.jetbrains.annotations.NotNull;
 
 @Entity(tableName = "stock")
@@ -19,18 +21,25 @@ public class StockDTO {
     @ColumnInfo
     public String companyName;
     @ColumnInfo
-    public double lastCost;
+    public double changePerCent;
     @ColumnInfo
     public double cost;
 
     public StockDTO() {
     }
 
-    public StockDTO(String ticker, String companyName, double lastCost, double cost) {
+    public StockDTO(String ticker, String companyName, double changePerCent, double cost) {
         this.ticker = ticker;
         this.companyName = companyName;
-        this.lastCost = lastCost;
+        this.changePerCent = changePerCent;
         this.cost = cost;
+    }
+
+    public StockDTO(Stock stock){
+        this.ticker = stock.getTicker();
+        this.companyName = stock.getCompanyName();
+        this.changePerCent = stock.getChangePerCent();
+        this.cost = stock.getCost();
     }
 
     public int getId() {
@@ -57,12 +66,12 @@ public class StockDTO {
         this.companyName = companyName;
     }
 
-    public double getLastCost() {
-        return lastCost;
+    public double getChangePerCent() {
+        return changePerCent;
     }
 
-    public void setLastCost(int lastCost) {
-        this.lastCost = lastCost;
+    public void setChangePerCent(int changePerCent) {
+        this.changePerCent = changePerCent;
     }
 
     public double getCost() { return cost; }

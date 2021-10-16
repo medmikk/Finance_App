@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.medvedev.financeapp.R;
+import com.medvedev.financeapp.domain.model.Stock;
 import com.medvedev.financeapp.presentation.view.StockInfoActivity;
 import com.medvedev.financeapp.repository.model.StockDTO;
 
@@ -36,7 +37,7 @@ public class StockListAdapter extends RecyclerView.Adapter<StockListAdapter.Stoc
         holder.setId(currentStock.getId());
         holder.tickerTv.setText(currentStock.getTicker());
         holder.companyNameTv.setText(currentStock.getCompanyName());
-        holder.lastCostTv.setText(new Double(currentStock.getLastCost()).toString());
+        holder.lastCostTv.setText(new Double(currentStock.getChangePerCent()).toString());
         holder.costTv.setText(new Double(currentStock.getCost()).toString());
     }
 
@@ -46,8 +47,17 @@ public class StockListAdapter extends RecyclerView.Adapter<StockListAdapter.Stoc
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setStocks(List<StockDTO> stocks){
+    public void setStocksDTO(List<StockDTO> stocks){
         this.stocks = stocks;
+        notifyDataSetChanged();
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void setStocks(List<Stock> stocks){
+        List<StockDTO> list = new ArrayList<>();
+        for (Stock stock : stocks)
+            list.add(new StockDTO(stock));
+        this.stocks = list;
         notifyDataSetChanged();
     }
 

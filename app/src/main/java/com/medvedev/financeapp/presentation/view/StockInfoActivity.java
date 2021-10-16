@@ -45,7 +45,7 @@ public class StockInfoActivity extends AppCompatActivity {
             tickerTv.setText(stockDTO.getTicker());
             companyTv.setText(stockDTO.getCompanyName());
             costTv.setText(new Double(stockDTO.getCost()).toString());
-            lastCostTv.setText(new Double(stockDTO.getLastCost()).toString());
+            lastCostTv.setText(new Double(stockDTO.getChangePerCent()).toString());
             addNotificationCv.setOnClickListener(v -> {
                 if (ActivityCompat.checkSelfPermission(
                         getApplicationContext(),
@@ -63,7 +63,7 @@ public class StockInfoActivity extends AppCompatActivity {
                     cv.put(CalendarContract.Events.TITLE, stockDTO.getTicker());
                     cv.put(CalendarContract.Events.DESCRIPTION, stockDTO.getCompanyName() +
                             "\n current cost: "+ stockDTO.getCost() + " $" +
-                            "\n last cost: "+ stockDTO.getLastCost() + " $");
+                            "\n last cost: "+ stockDTO.getChangePerCent() + " $");
                     cv.put(CalendarContract.Events.DTSTART, System.currentTimeMillis());
                     cv.put(CalendarContract.Events.DTEND, System.currentTimeMillis() + 1000);
                     cv.put(CalendarContract.Events.CALENDAR_ID, 2);

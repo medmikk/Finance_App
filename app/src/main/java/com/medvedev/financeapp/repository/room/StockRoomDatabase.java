@@ -12,7 +12,7 @@ import com.medvedev.financeapp.repository.room.DAO.StockDAO;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {StockDTO.class}, version = 1)
+@Database(entities = {StockDTO.class}, version = 2)
 public abstract class StockRoomDatabase extends RoomDatabase {
 
     //TODO rename orderDAO
@@ -26,6 +26,7 @@ public abstract class StockRoomDatabase extends RoomDatabase {
     public static StockRoomDatabase getDatabase(final Context context){
 
         if (INSTANCE == null) {
+
             synchronized (StockRoomDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),

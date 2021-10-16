@@ -14,12 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.medvedev.financeapp.R;
 import com.medvedev.financeapp.databinding.FragmentFavouriteBinding;
-import com.medvedev.financeapp.databinding.FragmentHomeBinding;
 import com.medvedev.financeapp.presentation.view.adapters.StockListAdapter;
 import com.medvedev.financeapp.presentation.viewModel.FavouriteViewModel;
-import com.medvedev.financeapp.presentation.viewModel.HomeViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -52,7 +49,7 @@ public class FavouriteFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         viewModel = new ViewModelProvider(this).get(FavouriteViewModel.class);
-        viewModel.getAllStocks().observe(getViewLifecycleOwner(), stocks -> adapter.setStocks(stocks));
+        viewModel.getAllStocks().observe(getViewLifecycleOwner(), stocks -> adapter.setStocksDTO(stocks));
 
         //viewModel.addStock("111", "comp",123.4,  444.2);
 

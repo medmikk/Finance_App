@@ -8,6 +8,7 @@ public class StockPriceData
     private String h;
     private String l;
     private String o;
+    private String dp;
 
     public String getC ()
     {
@@ -47,6 +48,14 @@ public class StockPriceData
     public void setH (String h)
     {
         this.h = h;
+    }
+
+    public String getDp() {
+        return dp;
+    }
+
+    public void setDp(String dp) {
+        this.dp = dp;
     }
 
     public String getL ()
