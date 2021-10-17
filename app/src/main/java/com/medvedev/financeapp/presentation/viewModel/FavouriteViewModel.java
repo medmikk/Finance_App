@@ -8,7 +8,9 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.medvedev.financeapp.domain.model.StockPriceData;
 import com.medvedev.financeapp.repository.model.StockDTO;
+import com.medvedev.financeapp.repository.network.QuoteLogic;
 import com.medvedev.financeapp.repository.room.StockRepository;
 
 import java.util.List;
@@ -32,13 +34,7 @@ public class FavouriteViewModel  extends AndroidViewModel {
         return allStocks;
     }
 
-    public void addStock(String ticker,
-                         String companyName,
-                         double cost,
-                         double lastCost){
-
-        StockDTO stockDTO = new StockDTO(ticker, companyName, lastCost, cost);
-        repository.insert(stockDTO);
-
+    public LiveData<StockPriceData> getStockPrice(String query){
+        return new QuoteLogic().getStockPrice(query);
     }
 }

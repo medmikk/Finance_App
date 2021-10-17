@@ -35,6 +35,11 @@ public class StockRepository {
 
     }
 
+
+    public LiveData<StockDTO> getByTicker(String ticker){
+        return stockDAO.getByTicker(ticker);
+    }
+
     public LiveData<StockDTO> getById(int id){
         return stockDAO.getById(id);
     }

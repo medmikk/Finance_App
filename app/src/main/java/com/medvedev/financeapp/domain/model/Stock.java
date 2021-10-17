@@ -1,5 +1,7 @@
 package com.medvedev.financeapp.domain.model;
 
+import com.medvedev.financeapp.repository.model.StockDTO;
+
 public class Stock {
 
     private String ticker;
@@ -12,6 +14,13 @@ public class Stock {
         this.companyName = companyName;
         this.cost = cost;
         this.changePerCent = changePerCent;
+    }
+
+    public Stock(StockDTO stockDTO){
+        this.ticker = stockDTO.getTicker();
+        this.companyName = stockDTO.getCompanyName();
+        this.cost = stockDTO.getCost();
+        this.changePerCent = stockDTO.getChangePerCent();
     }
 
     public String getTicker() {

@@ -29,4 +29,6 @@ public interface StockDAO {
     @Query("SELECT * FROM stock")
     LiveData<List<StockDTO>> getAllStocks();
 
+    @Query("SELECT * FROM stock WHERE ticker = :ticker")
+    LiveData<StockDTO> getByTicker(String ticker);
 }

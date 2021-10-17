@@ -6,7 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.medvedev.financeapp.domain.model.StockPriceData;
 import com.medvedev.financeapp.repository.model.StockDTO;
+import com.medvedev.financeapp.repository.network.QuoteLogic;
 import com.medvedev.financeapp.repository.room.StockRepository;
 
 public class StockInfoViewModel extends AndroidViewModel {
@@ -22,4 +24,7 @@ public class StockInfoViewModel extends AndroidViewModel {
         return repository.getById(id);
     }
 
+    public LiveData<StockPriceData> getStockPrice(String query){
+        return new QuoteLogic().getStockPrice(query);
+    }
 }
